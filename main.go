@@ -80,7 +80,7 @@ func addClient(ginContext *gin.Context) {
 
 	result, err := collection.InsertOne(context.TODO(), bson.M{"name": clientForm.Name})
 	if err != nil {
-		ginContext.JSON(200, gin.H{"status": "error", "message": err.Error()})
+		ginContext.JSON(400, gin.H{"status": "error", "message": err.Error()})
 		return
 	}
 
